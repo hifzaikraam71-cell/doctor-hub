@@ -1,9 +1,19 @@
+import {
+  getSupabaseServiceRoleKey,
+  getSupabaseUrl,
+} from "@/lib/supabase/env";
+
 export function isSupabaseConfigured(): boolean {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+  const url = getSupabaseUrl();
+  const key = getSupabaseServiceRoleKey();
 
   if (!url || !key) return false;
 
-  const placeholders = ["your-project", "your-anon-key", "your-service-role-key", "xxxxx"];
+  const placeholders = [
+    "your-project",
+    "your-anon-key",
+    "your-service-role-key",
+    "xxxxx",
+  ];
   return !placeholders.some((p) => url.includes(p) || key.includes(p));
 }

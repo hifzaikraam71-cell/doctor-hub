@@ -11,9 +11,13 @@ Live site par local file database kaam **nahi** karegi. Supabase chahiye.
 1. [supabase.com](https://supabase.com) → **New Project**
 2. **SQL Editor** → `supabase/schema.sql` ka poora code paste karke **Run**
 3. **Settings → API** se copy karo:
-   - Project URL
+   - **Project URL** — sirf `https://xxxxx.supabase.co` (❌ `/rest/v1/` mat lagana)
    - `anon` public key
    - `service_role` secret key
+
+> ⚠️ **Important:** `.env.example` mein values dalne se deploy nahi hota.  
+> Local: file ko `.env.local` naam se copy karo.  
+> Vercel: **Settings → Environment Variables** mein sab variables add karo.
 
 ---
 
@@ -44,9 +48,9 @@ git push -u origin main
 
 | Name | Value |
 |------|-------|
-| `NEXT_PUBLIC_SUPABASE_URL` | Supabase Project URL |
+| `NEXT_PUBLIC_SUPABASE_URL` | `https://xxxxx.supabase.co` (no `/rest/v1/`) |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service_role key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service_role key (zaroori — bina iske API fail) |
 | `JWT_SECRET` | koi bhi 32+ character random string |
 | `NEXT_PUBLIC_APP_URL` | `https://your-app.vercel.app` (deploy ke baad update) |
 
